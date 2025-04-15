@@ -17,25 +17,22 @@ class Solution {
     private int diameter = 0;
     public int diameterOfBinaryTree(TreeNode root) {
        
- 
-
-     
-        calculateDepth(root);
+        height(root);
         return diameter;
     }
 
-    private int calculateDepth(TreeNode node) {
-        if (node == null) {
+    private int height(TreeNode Node) {
+        if (Node == null) {
             return 0;
         }
-        int leftDepth = calculateDepth(node.left);
-        int rightDepth = calculateDepth(node.right);
+        int leftHeight = height(Node.left);
+        int rightHeight = height(Node.right);
 
-        // Update the diameter
-        diameter = Math.max(diameter, leftDepth + rightDepth);
+ 
+        diameter = Math.max(diameter,  leftHeight + rightHeight);
 
-        // Return the depth of the node
-        return Math.max(leftDepth, rightDepth) + 1;
+    
+        return Math.max(leftHeight, rightHeight) + 1;
     }
 }
 
